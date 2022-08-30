@@ -1,13 +1,22 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
+import { Outlet } from 'react-router-dom';
 import Header from '../../components/Header/Header';
+import Conversations from '../../components/HomeComponents/Conversations';
 
 const Home = () => {
     return (
         <div>
             <Header />
             <Container>
-                <h1>Hello React Typescript</h1>
+                <Row>
+                    <Col>
+                        <Conversations />
+                    </Col>
+                    <Col>
+                        <Outlet />
+                    </Col>
+                </Row>
             </Container>
         </div>
     );

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { baseUrl } from '../../utils/constantsData/constantsData';
 import fetcher from '../../utils/lib/fetcher';
 
 const Conversations = () => {

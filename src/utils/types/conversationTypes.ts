@@ -13,3 +13,4 @@ export interface IConversationState {
     status: 'idle' | 'loading' | 'failed',
     error: any
 }
+

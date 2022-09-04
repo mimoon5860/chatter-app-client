@@ -1,18 +1,26 @@
 import React, { useEffect } from 'react';
-import fetcher from '../../utils/lib/fetcher';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../../app/hooks';
+import { fetchAllConversations } from '../../lib/asyncTasks/conversationAsyncTasks';
+import { selectConversationState } from '../../lib/states/conversationState/conversationState';
+import { IConversation } from '../../utils/types/conversationTypes';
+import SingleConversation from '../ShowSingleComponents/SingleConversation';
 
 const Conversations = () => {
+    const dispatch = useAppDispatch();
+    const { conversations } = useSelector(selectConversationState);
 
     useEffect(() => {
-        (async function () {
-            const data = await fetcher.get('/api/conversation/get/all/62dd66f3079a0eb4143f6ac9');
-            console.log({ data });
-        })();
+        if (!conversations.length) {
+            dispatch(fetchAllConversations())
+        }
     }, [])
 
     return (
         <div>
-            <h1>See All Conversations</h1>
+            <div>
+                {conversations.map((conversation: IConversation) => <SingleConversation key={conversation._id} conversation={conversation} />)}
+            </div>
         </div>
     );
 };

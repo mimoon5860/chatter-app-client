@@ -1,0 +1,10 @@
+.register-form {}
+
+.upload-photo-btn {
+    padding: 2px;
+    background-color: #0a0a23;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}

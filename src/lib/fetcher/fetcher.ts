@@ -9,7 +9,6 @@ const obj: RequestInit = {
 
 // fetch object for fetch data
 const fetcher: IFetcher = {
-
     // get data fetcher
     get: async (url: string) => {
         try {

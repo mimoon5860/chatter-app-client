@@ -7,14 +7,15 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import DefaultConvo from './components/HomeComponents/DefaultConvo';
 import AllMsgOfConvo from './components/HomeComponents/AllMsgOfConvo';
+import PrivateRoute from './utils/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home />} >
-          <Route path='/' element={<DefaultConvo />} />
-          <Route path=':conv_id' element={<AllMsgOfConvo />} />
+        <Route path='/' element={<PrivateRoute element={<Home />} />} >
+          <Route path='/' element={<PrivateRoute element={<DefaultConvo />} />} />
+          <Route path=':conv_id' element={<PrivateRoute element={<AllMsgOfConvo />} />} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />

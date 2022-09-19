@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { useAppDispatch } from '../../app/hooks';
+import { userLogin } from '../../lib/asyncTasks/userAsyncTasks';
 import './login.css';
 const Login = () => {
-    const [loginInfo, setLoginInfo] = useState<{ phone: string, password: string } | {}>({});
+    const [loginInfo, setLoginInfo] = useState<{ phone: string, password: string }>({ phone: '', password: '' });
+    const dispatch = useAppDispatch();
 
     const handleLogin = (event: React.FormEvent): void => {
         event.preventDefault();
-
+        dispatch(userLogin(loginInfo));
     }
+
     return (
         <div className='bg-wrapper'>
             <Container fluid>

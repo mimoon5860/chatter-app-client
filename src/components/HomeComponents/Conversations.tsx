@@ -3,16 +3,18 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../app/hooks';
 import { fetchAllConversations } from '../../lib/asyncTasks/conversationAsyncTasks';
 import { selectConversationState } from '../../lib/states/conversationState/conversationState';
+import { selectUserState } from '../../lib/states/userState/userState';
 import { IConversation } from '../../utils/types/conversationTypes';
 import SingleConversation from '../ShowSingleComponents/SingleConversation';
 
-const Conversations = () => {
+const Conversations: React.FC = () => {
     const dispatch = useAppDispatch();
     const { conversations } = useSelector(selectConversationState);
+    const { user } = useSelector(selectUserState);
 
     useEffect(() => {
-        if (!conversations.length) {
-            dispatch(fetchAllConversations())
+        if (!conversations.length && user) {
+            dispatch(fetchAllConversations(user._id || ""))
         }
     }, [])
 

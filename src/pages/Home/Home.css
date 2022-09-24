@@ -1,0 +1,25 @@
+.convo-list-wrapper {
+    height: calc(100vh - 60px);
+}
+
+.single-convo {
+    background-color: gray;
+    color: white;
+    display: block;
+    border-top: 1px solid black;
+}
+
+.single-convo:first-child {
+    border-top: none;
+}
+
+.single-convo:hover {
+    color: black;
+    background-color: rgb(204, 204, 204);
+    transition: 0.3s ease;
+
+}
+
+.convo-img {
+    width: 40px;
+}

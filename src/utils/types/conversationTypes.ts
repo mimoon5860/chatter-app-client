@@ -14,3 +14,14 @@ export interface IConversationState {
     error: any
 }
 
+export interface IMsgType {
+    _id: string,
+    message: string,
+    senderId: string,
+    status: string,
+    file: string[] | [],
+    conversation: string,
+    createdAt: string,
+    updatedAt: string
+}
+
